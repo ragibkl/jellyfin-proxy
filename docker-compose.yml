@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  jellyfin-proxy:
+    image: ragibkl/jellyfin-proxy
+    build: .
+    volumes:
+      - ./app:/app
+    ports:
+      - 80:80
+    environment:
+      UPSTREAM_URL: http://192.168.1.231:8096
+    entrypoint: /app/entrypoint.sh
